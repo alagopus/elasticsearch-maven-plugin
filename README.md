@@ -17,6 +17,9 @@ The Elasticsearch behaviour and properties can be configured through the followi
 *   **instanceCount** [defaultValue=1]
     > how many Elasticsearch instances to start (all within the same cluster)
 
+*   **keep** [defaultValue=false]
+    > whether to keep Elasticsearch running.
+
 *   **skip** [defaultValue=false]
     > whether to skip the plugin execution or not
 

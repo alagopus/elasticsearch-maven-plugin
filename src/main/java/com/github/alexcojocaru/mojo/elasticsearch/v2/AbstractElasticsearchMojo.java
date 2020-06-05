@@ -384,6 +384,7 @@ public abstract class AbstractElasticsearchMojo
                     .withId(i)
                     .withBaseDir(baseDir.getAbsolutePath() + i)
                     .withHttpPort(httpPort + i)
+                    .withKeep(keep)
                     .withTransportPort(transportPort + i)
                     .withPathData(pathData)
                     .withPathLogs(pathLogs)

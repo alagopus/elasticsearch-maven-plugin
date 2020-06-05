@@ -35,6 +35,12 @@ public abstract class AbstractElasticsearchBaseMojo
     protected File baseDir;
 
     /**
+     * Whether to keep Elasticsearch running.
+     */
+    @Parameter(property="es.keep", defaultValue = "false")
+    protected boolean keep;
+
+    /**
      * Whether to skip the plugin execution or not.
      */
     @Parameter(property="es.skip", defaultValue = "false")
@@ -69,6 +75,17 @@ public abstract class AbstractElasticsearchBaseMojo
     public void setBaseDir(File baseDir)
     {
         this.baseDir = baseDir;
+    }
+
+    @Override
+    public boolean isKeep()
+    {
+        return keep;
+    }
+
+    public void setKeep(boolean keep)
+    {
+        this.keep = keep;
     }
 
     @Override

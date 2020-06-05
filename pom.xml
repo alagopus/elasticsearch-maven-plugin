@@ -10,7 +10,7 @@
 
 	<groupId>com.github.alexcojocaru</groupId>
 	<artifactId>elasticsearch-maven-plugin</artifactId>
-	<version>6.18-SNAPSHOT</version>
+	<version>6.18-KEEP</version>
 	<packaging>maven-plugin</packaging>
 
 	<name>Elasticsearch Maven Plugin</name>

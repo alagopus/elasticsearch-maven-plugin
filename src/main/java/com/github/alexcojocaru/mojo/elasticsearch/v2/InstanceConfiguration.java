@@ -23,6 +23,7 @@ public class InstanceConfiguration
     private String pathLogs;
     private Map<String, String> environmentVariables;
     private Properties settings;
+	public boolean keep;
 
 
     public ClusterConfiguration getClusterConfiguration()
@@ -48,6 +49,11 @@ public class InstanceConfiguration
     public int getHttpPort()
     {
         return httpPort;
+    }
+
+    public boolean isKeep()
+    {
+        return keep;
     }
 
     public int getTransportPort()
@@ -80,6 +86,7 @@ public class InstanceConfiguration
                 .append("id", id)
                 .append("baseDir", baseDir)
                 .append("httpPort", httpPort)
+                .append("keep", keep)
                 .append("transportPort", transportPort)
                 .append("pathData", pathData)
                 .append("pathLogs", pathLogs)
@@ -98,6 +105,7 @@ public class InstanceConfiguration
         private String pathLogs;
         private Map<String, String> environmentVariables;
         private Properties settings;
+		private boolean keep;
         
 
         public Builder withClusterConfiguration(ClusterConfiguration clusterConfiguration)
@@ -121,6 +129,12 @@ public class InstanceConfiguration
         public Builder withHttpPort(int httpPort)
         {
             this.httpPort = httpPort;
+            return this;
+        }
+
+        public Builder withKeep(boolean keep)
+        {
+            this.keep = keep;
             return this;
         }
 
@@ -160,6 +174,7 @@ public class InstanceConfiguration
             config.id = id;
             config.baseDir = baseDir;
             config.httpPort = httpPort;
+            config.keep = keep;
             config.transportPort = transportPort;
             config.pathData = pathData;
             config.pathLogs = pathLogs;

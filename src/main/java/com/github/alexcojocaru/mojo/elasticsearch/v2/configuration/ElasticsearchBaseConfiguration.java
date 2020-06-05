@@ -18,6 +18,8 @@ public interface ElasticsearchBaseConfiguration
     
     File getBaseDir();
     
+    boolean isKeep();
+    
     boolean isSkip();
     
     String getLogLevel();

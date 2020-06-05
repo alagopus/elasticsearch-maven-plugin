@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.apache.commons.exec.CommandLine;
+import org.apache.commons.exec.ProcessDestroyer;
 import org.apache.commons.lang3.StringUtils;
 
 import com.github.alexcojocaru.mojo.elasticsearch.v2.step.InstanceSetupSequence;
@@ -37,10 +38,12 @@ public class ForkedInstance
     {
         FilesystemUtil.setScriptPermission(config, "elasticsearch");
 
-        ProcessUtil.executeScript(config,
+        ProcessDestroyer processDestroyer = config.isKeep() ? null : new ForkedElasticsearchProcessDestroyer(config);
+        
+		ProcessUtil.executeScript(config,
                 getStartScriptCommand(),
                 config.getEnvironmentVariables(),
-                new ForkedElasticsearchProcessDestroyer(config));
+                processDestroyer);
     }
 
     private InstanceStepSequence getSetupSequence()
